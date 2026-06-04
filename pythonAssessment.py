@@ -6,7 +6,8 @@ from collections import Counter
 # Function 1: Count Specific Word
 
 def count_specific_word(text, search_word):
-    return text.lower().split().count(search_word.lower())
+    words = re.findall(r"\b\w+\b", text.lower())
+    return words.count(search_word.lower())
 
 
 
