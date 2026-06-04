@@ -29,7 +29,7 @@ No additional installations are required.
 3. Run the program:
 
 ```bash
-python NewArticleAnalyzer.py
+python pythonAssessment.py
 ```
 
 4. When prompted, enter a word to search for in the article.

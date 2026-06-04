@@ -6,15 +6,7 @@ from collections import Counter
 # Function 1: Count Specific Word
 
 def count_specific_word(text, search_word):
-    words = re.findall(r"\b\w+\b", text.lower())
-
-    count = 0
-
-    for word in words:
-        if word == search_word.lower():
-            count += 1
-
-    return count
+    return text.lower().split().count(search_word.lower())
 
 
 
@@ -123,54 +115,34 @@ The Apple Pie Master from ACME Inc. represents a significant advancement in the 
 """
 
 
-# User input
-search_word = input("Enter a word to search for: ").strip()
+if __name__ == "__main__":
 
-# Word count
-word_count = count_specific_word(article_text, search_word)
+    search_word = input("Enter a word to search for: ").strip()
 
-# Most common word
-most_common = identify_most_common_word(article_text)
+    word_count = count_specific_word(article_text, search_word)
 
-# Average word length
-average_length = calculate_average_word_length(article_text)
+    most_common = identify_most_common_word(article_text)
 
-# Paragraph count
-paragraph_count = count_paragraphs(article_text)
+    average_length = calculate_average_word_length(article_text)
 
-# Sentence count
-sentence_count = count_sentences(article_text)
+    paragraph_count = count_paragraphs(article_text)
 
+    sentence_count = count_sentences(article_text)
 
+    counter = 0
 
+    while counter == 0:
+        print("\n NEWS ARTICLE ANALYSIS")
+        counter += 1
 
+    print(f"\nOccurrences of '{search_word}': {word_count}")
+    print(f"Most Common Word: {most_common}")
+    print(f"Average Word Length: {average_length:.2f}")
+    print(f"Number of Paragraphs: {paragraph_count}")
+    print(f"Number of Sentences: {sentence_count}")
 
-counter = 0
-
-while counter == 0:
-    print("\n NEWS ARTICLE ANALYSIS")
-    counter += 1
-
-
-
-# Display Results
-
-
-print(f"\nOccurrences of '{search_word}': {word_count}")
-
-print(f"Most Common Word: {most_common}")
-
-print(f"Average Word Length: {average_length:.2f}")
-
-print(f"Number of Paragraphs: {paragraph_count}")
-
-print(f"Number of Sentences: {sentence_count}")
-
-
-
-
-if word_count > 0:
-    print(f"\nThe word '{search_word}' was found.")
-else:
-    print(f"\nThe word '{search_word}' was not found.")
+    if word_count > 0:
+        print(f"\nThe word '{search_word}' was found.")
+    else:
+        print(f"\nThe word '{search_word}' was not found.")
 
